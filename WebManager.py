@@ -1,5 +1,5 @@
 import requests
 class WebManager():
-    def makeRequest(self):
-        resp = requests.get("https://jsonplaceholder.typicode.com/todos/1")
+    def makeRequest(self, taskID):
+        resp = requests.get(f"https://jsonplaceholder.typicode.com/todos/{taskID}")
         return resp.text
