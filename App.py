@@ -1,4 +1,5 @@
-import requests
+from WebManager import WebManager
 
-resp = requests.get("https://jsonplaceholder.typicode.com/todos/1")
-print(resp.text)
+webMan = WebManager()
+resp = webMan.makeRequest()
+print(resp)
