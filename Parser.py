@@ -7,9 +7,9 @@ class Parser:
         return todoDict["title"]
     def ParseToObject(self, respText):
         todoDict = json.loads(respText)
-        myTask = MyTask()
+        myTask = MyTask()        
+        myTask.setTitle(todoDict["title"])
+        myTask.setUser(todoDict["userId"])
         myTask.id = todoDict["id"]
-        myTask.title = todoDict["title"]
-        myTask.completed = todoDict["completed"]
-        myTask.userId = todoDict["userId"]
+        myTask.completed = todoDict["completed"]        
         return myTask
