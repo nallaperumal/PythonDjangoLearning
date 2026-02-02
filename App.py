@@ -1,21 +1,22 @@
-def validation(func):
-    def wrapper(y):
-        print(f"validating before the func: {y}")
-        func(y)
-        print("after validation")
-    return wrapper
+import re #regular expression
 
-def myName(func):
-    def wrapper(x):
-        print(f"before calling the func with param..{x}")
-        upperX = x.upper()
-        func(upperX)
-        print(f"post processing with param..{x}")
-    return wrapper
+patternStartsWitha = "^[aA]"
+test_string = "Apple"
+banana = "banana"
+result = re.match(patternStartsWitha, test_string)
 
-@validation
-@myName
-def myFunction(nam):
-    print(f"Hey {nam}")
+if result:
+    print("search succeeded")
+else:
+    print("failed")
 
-myFunction("udit narayan")
+testStr = """My number is 1231233
+                my frinds number is 789799 """
+onlyNumbers =  "\d+"
+match = re.findall(onlyNumbers, testStr)
+# print(match)
+
+pattern = "ab+"
+sample_str = "ababbaabbb"
+all = re.findall(pattern, sample_str)
+print(all)
