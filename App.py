@@ -1,13 +1,13 @@
-from WebManager import WebManager
-from Parser import Parser
-from FileManager import FileManager
-webMan = WebManager()
-fileMan = FileManager()
-parser = Parser()
-
-for i in range(1,10):
-    resp = webMan.makeRequest(i)
-    fileMan.SaveToFile(resp)
-    #res = parser.ParseText(resp)
-    res = parser.ParseToObject(resp)
-    print(res.title)
+import inspect
+class Vehicle:
+    def __init__(self, wheels, color = "white"):
+        self.wheels = wheels
+        self.color = color
+    def recolor(self, color):
+        self.color = color
+v = Vehicle("4", "red")
+# print(v.color)
+# print(dir(v))
+# print(callable(v.recolor))
+print(inspect.signature(v.recolor))
+print(v.__dict__)
