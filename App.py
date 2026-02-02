@@ -1,23 +1,17 @@
 import time 
+from BusFactory import BusFactory
 
-class bus19():
-    def __init__(self):
-        self.stops = ["ChennaiOne", "Karapakkam", "Sholinganallur", "Kilambakkam" ]
-    def drive(self):
-        for stop in self.stops:
-            print(f"... next stop is: {stop}")
-            time.sleep(1.2) # DO NOT use in production
+# busFact = BusFactory()
+# busFact.CreateBus("19")
 
-class busMAA2():
-    def __init__(self):
-        self.stops = ["Airport", "Chromepet", "Vels University", "Thoraipakkam" ,"PTC" ]
-    def drive(self):
-        for stop in self.stops:
-            print(f"... next stop is: {stop}")
-            time.sleep(1.2) # DO NOT use in production
+bus19 = BusFactory.CreateBus("19")
+bus19.drive()
 
-aReal19RandonBus = bus19()
-aReal19RandonBus.drive()
-print("....")
-maa2Bus = busMAA2()
-maa2Bus.drive()
+maabus = BusFactory.CreateBus("MAA2")
+maabus.drive()
+
+# aReal19RandonBus = bus19()
+# aReal19RandonBus.drive()
+# print("....")
+# maa2Bus = busMAA2()
+# maa2Bus.drive()
