@@ -1,13 +1,17 @@
-from WebManager import WebManager
-from Parser import Parser
-from FileManager import FileManager
-webMan = WebManager()
-fileMan = FileManager()
-parser = Parser()
+import time 
+from BusFactory import BusFactory
 
-for i in range(1,10):
-    resp = webMan.makeRequest(i)
-    fileMan.SaveToFile(resp)
-    #res = parser.ParseText(resp)
-    res = parser.ParseToObject(resp)
-    print(res.title)
+# busFact = BusFactory()
+# busFact.CreateBus("19")
+
+bus19 = BusFactory.CreateBus("19")
+bus19.drive()
+
+maabus = BusFactory.CreateBus("MAA2")
+maabus.drive()
+
+# aReal19RandonBus = bus19()
+# aReal19RandonBus.drive()
+# print("....")
+# maa2Bus = busMAA2()
+# maa2Bus.drive()
