@@ -1,22 +1,23 @@
-import re #regular expression
+import time 
 
-patternStartsWitha = "^[aA]"
-test_string = "Apple"
-banana = "banana"
-result = re.match(patternStartsWitha, test_string)
+class bus19():
+    def __init__(self):
+        self.stops = ["ChennaiOne", "Karapakkam", "Sholinganallur", "Kilambakkam" ]
+    def drive(self):
+        for stop in self.stops:
+            print(f"... next stop is: {stop}")
+            time.sleep(1.2) # DO NOT use in production
 
-if result:
-    print("search succeeded")
-else:
-    print("failed")
+class busMAA2():
+    def __init__(self):
+        self.stops = ["Airport", "Chromepet", "Vels University", "Thoraipakkam" ,"PTC" ]
+    def drive(self):
+        for stop in self.stops:
+            print(f"... next stop is: {stop}")
+            time.sleep(1.2) # DO NOT use in production
 
-testStr = """My number is 1231233
-                my frinds number is 789799 """
-onlyNumbers =  "\d+"
-match = re.findall(onlyNumbers, testStr)
-# print(match)
-
-pattern = "ab+"
-sample_str = "ababbaabbb"
-all = re.findall(pattern, sample_str)
-print(all)
+aReal19RandonBus = bus19()
+aReal19RandonBus.drive()
+print("....")
+maa2Bus = busMAA2()
+maa2Bus.drive()
