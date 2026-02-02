@@ -1,20 +1,21 @@
 def validation(func):
-    def wrapper():
-        print("validating before the func")
-        func()
+    def wrapper(y):
+        print(f"validating before the func: {y}")
+        func(y)
         print("after validation")
     return wrapper
 
 def myName(func):
-    def wrapper():
-        print("before calling the func")
-        func()
-        print("post processing")
+    def wrapper(x):
+        print(f"before calling the func with param..{x}")
+        upperX = x.upper()
+        func(upperX)
+        print(f"post processing with param..{x}")
     return wrapper
 
 @validation
 @myName
-def myFunction():
-    print("Hey Jack Sally")
+def myFunction(nam):
+    print(f"Hey {nam}")
 
-myFunction()
+myFunction("udit narayan")
