@@ -1,11 +1,20 @@
-import inspect
-import requests
+def validation(func):
+    def wrapper():
+        print("validating before the func")
+        func()
+        print("after validation")
+    return wrapper
 
-# print(dir(requests))
-# print(callable(requests.get))
-print(inspect.signature(requests.get))
-result = requests.get("https://jsonplaceholder.typicode.com/todos/1")
-print(result)
-# print(dir(result))
-print(result.text)
-print(result.json)
+def myName(func):
+    def wrapper():
+        print("before calling the func")
+        func()
+        print("post processing")
+    return wrapper
+
+@validation
+@myName
+def myFunction():
+    print("Hey Jack Sally")
+
+myFunction()
