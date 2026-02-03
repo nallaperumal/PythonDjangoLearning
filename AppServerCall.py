@@ -2,7 +2,7 @@ import requests
 import json
 
 class DataUpdate:
-    def AddData(self, params) -> str:
+    def AddData(self, params:dict) -> str:
         url = "https://jsonplaceholder.typicode.com/posts/"
         payload = json.dumps(params)
         headers = {
@@ -11,8 +11,8 @@ class DataUpdate:
         response = requests.request("POST", url, headers=headers, data=payload)
         # print(response.text)
         return response.text
-    def UpdateData(self, params) -> str:
-        url = "https://jsonplaceholder.typicode.com/posts/"
+    def UpdateData(self, params:dict) -> str:
+        url = "https://jsonplaceholder.typicode.com/posts/3"
         payload = json.dumps(params)
         headers = {
         'Content-Type': 'application/json'
