@@ -1,31 +1,35 @@
 #pip install numpy
 
 import numpy as np
-arr = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
-for x in arr:
-    print(x)
-print("...")
-reshapedArr = arr.reshape(4,3)
-# print(reshapedArr)
-# 1,2,3
-# 4,5,6
-# 7,8,9
-# 10,11,12
-for subArr in reshapedArr:
-    for y in subArr:
-        print(y)
-reshapedArr3x4 = arr.reshape(3,4)
-# print(reshapedArr3x4)
-reshapedArr3d = arr.reshape(2,3,2)
+
+arr1  =np.array( [[1,2],[3,4]])
+arr2  =np.array( [[4,5],[6,7]])
+
+mulArr = arr1 @ arr2
+print(mulArr)
+arr1 = np.random.randint(0, 9, size = (3,3))
+print(arr1)
+np.savetxt('mat1.csv', arr1, delimiter=',', header="id,mark,rank", footer="@2026", fmt="%d")
+
+retreivedMat = np.genfromtxt('mat1.csv',delimiter=",")
+print(retreivedMat)
+# joinedArr = np.concatenate((arr1, arr2))
+# print(joinedArr)
+# splittedArr = np.array_split(joinedArr,2)
+# print(splittedArr)
+# joinedArr = np.vstack((arr1, arr2))
+# print(joinedArr)
+# print(np.average(joinedArr))
+# print(np.sum(joinedArr))
+# print(np.sqrt(joinedArr))
+
+# arr = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+# for x in arr:
+#     print(x)
 # print("...")
-# print(reshapedArr3d)
-# newArr = arr.copy()
-# newArr[3]= 25
-# newView = arr.view()
-# print(f"copy {newArr}")
-# print(f"orig array:{arr}")
-# newView[4] = 36
-# print(f"(after view modification) orig array:{arr}")
-# print(f"shape of array: {arr.shape}")
-# arr = np.array([[1,2,3,4,5],[6,7,8,9,10]])
-# print("shape:", arr.shape)
+# reshapedArr = arr.reshape(4,3)
+# for subArr in reshapedArr:
+#     for y in subArr:
+#         print(y)
+# reshapedArr3x4 = arr.reshape(3,4)
+# reshapedArr3d = arr.reshape(2,3,2)
