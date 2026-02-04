@@ -10,9 +10,11 @@ prices = np.array([350,400,410,435,451,489,500,350,310,329,331,350])
 
 dayAndPrice = np.array([[1,350],[2,410],[3,450]])
 priceFrame = pd.DataFrame(dayAndPrice,columns=['Day','Price'])
-print(priceFrame)
+custFrame = pd.read_csv('products-100.csv')
+print(custFrame)
 # plt.bar(days, prices,color='orange')
-plt.bar(priceFrame['Day'], priceFrame['Price'],color='orange')
+plt.bar(custFrame['Name'], custFrame['Price'],color='orange')
+
 plt.title("Simulated Silver Price")
 plt.xlabel("Day")
 plt.ylabel("Price ($)")
