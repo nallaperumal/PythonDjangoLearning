@@ -10,14 +10,18 @@ class Storage:
     def save_data(self):
         print(f"saving the data {self.capacity} GB")    
 class Computer:
-    def __init__(self, model_name:str, cpu:Processor, disk:Storage):
+    def __init__(self, model_name:str, cpu:Processor, disk:Storage): #contructor injection
         self.model_name = model_name
         self.cpu = cpu
         self.disk = disk
     def work(self) -> str:
         print(f"system with cpu {self.cpu.cores} and memory {self.disk.capacity}") 
         return "work is going on"   
-cpu = Processor("intel i5", "4")
+    def setCpu(self, newcpu:Processor): #property injection
+        self.cpu = newcpu
+myWorkcpu = Processor("intel i5", "4")
 myStorage = Storage(500) 
-myComp = Computer("Programming laptop",cpu, myStorage)
+myComp = Computer("Programming laptop",myWorkcpu, myStorage)
 myComp.work()
+myGamingcpu = Processor("Nvidia", "12")
+myComp.setCpu(myGamingcpu)

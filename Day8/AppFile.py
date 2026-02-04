@@ -1,18 +1,27 @@
 import datetime
+from abc import ABC, abstractmethod
 
-class SaveToFile:
+class SaveData(ABC):
+    @abstractmethod
+    def AddData(self, data:str):
+        pass
+    @abstractmethod
+    def UpdateOrReplaceData(self, data:str):
+        pass
+
+class SaveToFile(SaveData):
     def __init__(self):
         self.file_name = "test.txt"
     def AddData(self, data): #file in append mode
         with open(self.file_name, "a") as myFile:
             myFile.write(data)
-    def UpdateData(self, data): # file in write mode
+    def UpdateOrReplaceData(self, data): # file in write mode
         with open(self.file_name, "w") as myFile:
             myFile.write(data)
 
 fileAcceesObj = SaveToFile()
 conten_tosave = ["Hi today is wednes", "we tried numpy"]
-fileAcceesObj.UpdateData(str(conten_tosave))
+fileAcceesObj.UpdateOrReplaceData(str(conten_tosave))
 fileAcceesObj.AddData("This data does not overrides but gets appended")
 
 # with open(file_name, "w") as myFile:
