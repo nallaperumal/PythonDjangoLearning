@@ -24,7 +24,7 @@ dataFrame.fillna({"Price": 0}, inplace=True)
 for x in dataFrame.index:
   if dataFrame.loc[x, "Price"] > 600:
     dataFrame.loc[x, "Price"] = 600
-salesByCategory = dataFrame.groupby('Category')['Price'].sum()    
+salesByCategory = dataFrame.groupby(['Category','Brand'])['Price'].sum()    
 print(salesByCategory)
 salesByCategory.to_csv('products-100_updated.csv')
 print("...")
