@@ -18,10 +18,12 @@ dataFrameFromCSV.fillna(0, inplace=True)
 dataFrameFromCSV.fillna({"Price":0}, inplace=True)
 dataFrameFromCSV.drop_duplicates(inplace=True)
 
-for x in dataFrameFromCSV.index:
-    if dataFrameFromCSV.loc[x, "Price"] > 500:
-        dataFrameFromCSV.loc[x, "Price"] = 500
-dataFrameFromCSV.to_csv("capped-price-products.csv")        
+salesByCategory = dataFrameFromCSV.groupby(['Category'])['Price'].sum()
+salesByCategory.to_csv("salesByCategory.csv")
+# for x in dataFrameFromCSV.index:
+#     if dataFrameFromCSV.loc[x, "Price"] > 500:
+#         dataFrameFromCSV.loc[x, "Price"] = 500
+# dataFrameFromCSV.to_csv("capped-price-products.csv")        
 # print(new_df.info())
 newDF = dataFrameFromCSV.loc[1:11,['Name', 'Price']]
 
