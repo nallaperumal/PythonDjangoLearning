@@ -17,9 +17,13 @@ new_df = dataFrameFromCSV.dropna()
 dataFrameFromCSV.fillna(0, inplace=True)
 dataFrameFromCSV.fillna({"Price":0}, inplace=True)
 dataFrameFromCSV.drop_duplicates(inplace=True)
+# sortFull = dataFrameFromCSV.sort_values(by="Price",ascending=False)
+# sortFull.to_csv("sortedPriceFull.csv")
 
 salesByCategory = dataFrameFromCSV.groupby(['Category'])['Price'].sum()
-salesByCategory.to_csv("salesByCategory.csv")
+# sortedSales = salesByCategory.sort_values(ascending=False)
+# sortedSales.to_csv("salesByCategory.csv")
+
 # for x in dataFrameFromCSV.index:
 #     if dataFrameFromCSV.loc[x, "Price"] > 500:
 #         dataFrameFromCSV.loc[x, "Price"] = 500
@@ -28,9 +32,9 @@ salesByCategory.to_csv("salesByCategory.csv")
 newDF = dataFrameFromCSV.loc[1:11,['Name', 'Price']]
 
 plt.bar(newDF['Name'], newDF['Price'],color='orange')
-plt.show()
+# plt.show()
 
-prices = np.array([220,250,310,350,240])
+# prices = np.array([220,250,310,350,240])
 # plt.plot(days, prices, marker='v', color='red')
 # plt.bar(days, prices,color='orange')
 # plt.bar(dayAndPriceFrame['Day'], dayAndPriceFrame['Price'],color='orange')
