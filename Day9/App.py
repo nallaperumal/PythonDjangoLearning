@@ -22,8 +22,12 @@ higherSalesAlone = dataFrameFromCSV[dataFrameFromCSV['Price']> 800]
 # sortFull.to_csv("sortedPriceFull.csv")
 
 salesByCategory = dataFrameFromCSV.groupby(['Category'])['Price'].sum()
-sortedSales = salesByCategory.sort_values(ascending=False)
-sortedSales.to_csv("salesByCategory.csv")
+# salesByCategory = dataFrameFromCSV.groupby(['Category']).agg(
+#     TotalSales = ('Price','sum')
+# )
+salesByCategory.to_csv("salesByCategory.csv")
+# sortedSales = salesByCategory.sort_values(ascending=False)
+# sortedSales.to_csv("salesByCategory.csv")
 
 # for x in dataFrameFromCSV.index:
 #     if dataFrameFromCSV.loc[x, "Price"] > 500:
