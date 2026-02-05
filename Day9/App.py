@@ -13,14 +13,21 @@ priceFrame = pd.DataFrame(dayAndPrice,columns=['Day','Price'])
 print("...")
 dataFrame = pd.read_csv('products-100.csv')
 new_df = dataFrame.dropna()
+print(dataFrame.info())
+dataFrame.drop_duplicates(inplace = True)
+print(dataFrame.info())
 # print(df.info())
 
 # df.dropna(inplace = True)
 # df.fillna(0,inplace = True)
 dataFrame.fillna({"Price": 0}, inplace=True)
+for x in dataFrame.index:
+  if dataFrame.loc[x, "Price"] > 600:
+    dataFrame.loc[x, "Price"] = 600
+dataFrame.to_csv('products-100_updated.csv')
 print("...")
 # print(new_df.to_string())
-# print(df.info())
+
 # print(dataFrame[['Name','Price']])
 print(dataFrame.loc[3:9,['Name','Price']])
 # plt.bar(days, prices,color='orange')
