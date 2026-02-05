@@ -1,20 +1,21 @@
-import matplotlib.pyplot as plt #pip install matplotlib
-import numpy as np
+#pip install pandas
 import pandas as pd
-
-days =  np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+import numpy as np
+import matplotlib.pyplot as plt
+# pip install matplotlib
+days =  np.array([1,2,3,4,5])
 dayFrame = pd.DataFrame(days,columns=['Day'])
-
 print(dayFrame)
-prices = np.array([350,400,410,435,451,489,500,350,310,329,331,350])
-
 dayAndPrice = np.array([[1,350],[2,410],[3,450]])
-priceFrame = pd.DataFrame(dayAndPrice,columns=['Day','Price'])
-print(priceFrame)
+dayAndPriceFrame = pd.DataFrame(dayAndPrice,columns=['Day', 'Price'])
+print("...")
+print(dayAndPriceFrame)
+prices = np.array([220,250,310,350,240])
+# plt.plot(days, prices, marker='v', color='red')
 # plt.bar(days, prices,color='orange')
-plt.bar(priceFrame['Day'], priceFrame['Price'],color='orange')
+plt.bar(dayAndPriceFrame['Day'], dayAndPriceFrame['Price'],color='orange')
 plt.title("Simulated Silver Price")
-plt.xlabel("Day")
-plt.ylabel("Price ($)")
+plt.xlabel("Days")
+plt.ylabel("price /g")
 plt.grid(True)
 plt.show()
