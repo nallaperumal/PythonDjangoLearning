@@ -10,12 +10,12 @@ prices = np.array([350,400,410,435,451,489,500,350,310,329,331,350])
 
 dayAndPrice = np.array([[1,350],[2,410],[3,450]])
 priceFrame = pd.DataFrame(dayAndPrice,columns=['Day','Price'])
-print("...")
+# print("...")
 dataFrame = pd.read_csv('products-100.csv')
 new_df = dataFrame.dropna()
-print(dataFrame.info())
+# print(dataFrame.info())
 dataFrame.drop_duplicates(inplace = True)
-print(dataFrame.info())
+# print(dataFrame.info())
 # print(df.info())
 
 # df.dropna(inplace = True)
@@ -24,7 +24,9 @@ dataFrame.fillna({"Price": 0}, inplace=True)
 for x in dataFrame.index:
   if dataFrame.loc[x, "Price"] > 600:
     dataFrame.loc[x, "Price"] = 600
-dataFrame.to_csv('products-100_updated.csv')
+salesByCategory = dataFrame.groupby('Category')['Price'].sum()    
+print(salesByCategory)
+salesByCategory.to_csv('products-100_updated.csv')
 print("...")
 # print(new_df.to_string())
 
