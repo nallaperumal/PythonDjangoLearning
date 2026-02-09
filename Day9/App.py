@@ -17,14 +17,15 @@ new_df = dataFrameFromCSV.dropna()
 dataFrameFromCSV.fillna(0, inplace=True)
 dataFrameFromCSV.fillna({"Price":0}, inplace=True)
 dataFrameFromCSV.drop_duplicates(inplace=True)
-higherSalesAlone = dataFrameFromCSV[dataFrameFromCSV['Price']> 800]
-# sortFull = dataFrameFromCSV.sort_values(by="Price",ascending=False)
+
+higherSalesAlone = dataFrameFromCSV[dataFrameFromCSV['Price']> 800] #filtering
+sortFull = dataFrameFromCSV.sort_values(by="Price",ascending=False)
 # sortFull.to_csv("sortedPriceFull.csv")
 
 salesByCategory = dataFrameFromCSV.groupby(['Category'])['Price'].sum()
-# salesByCategory = dataFrameFromCSV.groupby(['Category']).agg(
-#     TotalSales = ('Price','sum')
-# )
+salesByCategory = dataFrameFromCSV.groupby(['Category']).agg(
+    TotalSales = ('Price','sum')
+)
 salesByCategory.to_csv("salesByCategory.csv")
 # sortedSales = salesByCategory.sort_values(ascending=False)
 # sortedSales.to_csv("salesByCategory.csv")
