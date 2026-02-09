@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            .product-container {
+               display: grid;
+                grid-template-columns: auto auto auto;
+            }
+           
+        </style>
+    </head>
+<h1>Hello World!</h1>
+<p>Welcome to my first Django project!</p>
+
+<div class="product-container">
+    {% for product in myProducts %}
+    
+    <div class="product">
+        <h2>{{ product.Name }}</h2>
+
+        <img src="{% static 'cake_choco.jpg' %}" width="200px">
+        <p>{{ product.Description }}</p>
+    </div>
+    {% endfor %}
+</div>
+</body>
+
+</html>
