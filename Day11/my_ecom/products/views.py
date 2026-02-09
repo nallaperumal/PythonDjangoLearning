@@ -8,7 +8,9 @@ def products(request):
     myProducts = [
         {'Name': 'Vanilla cake','Price': 300, 'Description': 'This is a vanilla cake'},
         {'Name': 'Chocolate cake','Price': 320, 'Description': 'This is a chocolate cake'},
-         {'Name': 'Red Velvet cake','Price': 350, 'Description': 'This is a red velvet cake'}
+         {'Name': 'Red Velvet cake','Price': 350, 'Description': 'This is a red velvet cake'},
+         {'Name': 'Black Forest cake','Price': 400, 'Description': 'This is a black forest cake'},
+         {'Name': 'Pineapple cake','Price': 250, 'Description': 'This is a pineapple cake'}
     ]
     context = {
         'myProducts': myProducts
