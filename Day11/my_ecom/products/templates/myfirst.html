@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            .product-container {
+               display: grid;
+                grid-template-columns: auto auto auto;
+            }
+           
+        </style>
+    </head>
+<h1>Hello World!</h1>
+<p>Welcome to my first Django project!</p>
+
+<div class="product-container">
+    <div class="product">
+        <h2>Banana Cake</h2>
+
+        <img src="{% static 'banana_cake.jpg' %}" width="200px">
+        <p>This is a delicious banana cake recipe.</p>
+    </div>
+    <div class="product">
+        <h2>Chocolate Cake</h2>
+
+        <img src="{% static 'cake_choco.jpg' %}" width="200px">
+        <p>This is a delicious chocolate cake recipe.</p>
+    </div>
+</div>
+</body>
+
+</html>
