@@ -6,5 +6,7 @@ urlpatterns = [
     path('products/json/<int:product_id>/', views.product_json_detail, 
                 name='product_json_detail'),
 
-    path('api/products/', views.get_products, name='get_products'),            
+    path('api/products/', views.get_products, name='get_products'),      
+
+     path('api/products/add/', views.add_product, name='add_product')      
 ]
