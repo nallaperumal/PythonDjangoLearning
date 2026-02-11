@@ -6,6 +6,13 @@ from .serializers import ProductSerializer
 from rest_framework.response import Response
 from rest_framework import status
 
+from rest_framework import viewsets
+from rest_framework.decorators import action
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    
 def products(request):
     return HttpResponse("Hello world! Welcome to products")
 def product_json(request):
