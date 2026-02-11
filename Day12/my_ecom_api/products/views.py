@@ -1,10 +1,29 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
-from .models import Product
-from .serializers import ProductSerializer
+from .models import Product, Sales
+from .serializers import ProductSerializer, SalesSerializer
 from rest_framework.response import Response
 from rest_framework import status
+
+from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.permissions import AllowAny, IsAuthenticated
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            # Allow anyone to view products
+            permission_classes = [AllowAny]
+        else:
+            # Require authentication for POST, PUT, DELETE
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+
+class SalesViewSet(viewsets.ModelViewSet):
+    queryset = Sales.objects.all()
+    serializer_class = SalesSerializer
 
 def products(request):
     return HttpResponse("Hello world! Welcome to products")
