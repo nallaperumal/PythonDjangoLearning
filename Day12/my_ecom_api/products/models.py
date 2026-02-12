@@ -9,6 +9,7 @@ class Sales(models.Model):
   Product = models.ForeignKey(Product, on_delete=models.CASCADE)
   Quantity = models.PositiveIntegerField() 
   Country = models.CharField(max_length=100) 
+  Created_at = models.DateTimeField(auto_now_add=True)
 # python manage.py makemigrations products
 # python manage.py migrate products
 # python manage.py shell
