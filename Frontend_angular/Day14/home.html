@@ -3,6 +3,7 @@
 <head>
     <title>My TCS Store</title>
     <link rel="stylesheet" href="myStyle.css" />
+    <script src="myScript.js"></script>
 </head>
 
 <body>
@@ -12,11 +13,19 @@
         </div>
 
         <div class="content">
-            <div class="product-card">
-                <img src="img/mango.png" width="150px"></img>
-                <div class="product-title">Mango</div>
-                <div class="product-price">Rs. 120</div>
-                <button class="buy-btn">Add to Cart</button>
+            <div class="product-list">
+                <div class="product-card">
+                    <img src="img/mango.png"></img>
+                    <div class="product-title">Mango</div>
+                    <div class="product-price">Rs. 120</div>
+                    <button class="buy-btn" onclick="showAlert()">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="img/guava.jpg"></img>
+                    <div class="product-title">Guava</div>
+                    <div class="product-price">Rs. 80</div>
+                    <button class="buy-btn" onclick="fetchData()">Add to Cart</button>
+                </div>
             </div>
         </div>
         <div class="footer">
