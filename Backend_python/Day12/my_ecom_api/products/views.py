@@ -24,6 +24,18 @@ class ProductViewSet(viewsets.ModelViewSet):
 class SalesViewSet(viewsets.ModelViewSet):
     queryset = Sales.objects.all()
     serializer_class = SalesSerializer
+    # localhost:8080/api/sales/by_country/?country=India&limit=4
+    @action(detail=False, methods=['get'], permission_classes=[AllowAny])
+    def by_country(self, request):
+        country = request.query_params.get('country')
+        limit = int(request.query_params.get('limit'))
+        if not country:
+            return Response({'error': 'country parameter is required'}, status=status.HTTP_400_BAD_REQUEST) 
+        sales = Sales.objects.filter(Country=country).order_by('-Quantity')[:limit]
+        # sales = Sales.objects.filter(Product__id=2).order_by('-Quantity')[:limit]
+        # sales = Sales.objects.filter(Product__Name="red velvet").order_by('-Quantity')[:limit]
+        serializer = self.get_serializer(sales, many=True)
+        return Response(serializer.data)
 
 def products(request):
     return HttpResponse("Hello world! Welcome to products")
