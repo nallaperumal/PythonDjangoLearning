@@ -5,8 +5,8 @@ class Product(models.Model):
   Desc = models.CharField(max_length=10)
 
 class Sales(models.Model):
-  Name = models.CharField(max_length=15)
-  # Product = models.ForeignKey(Product, on_delete=models.CASCADE)
+  # Name = models.CharField(max_length=15)
+  Product = models.ForeignKey(Product, on_delete=models.CASCADE)
   Quantity = models.PositiveIntegerField() 
   Country = models.CharField(max_length=100) 
 # python manage.py makemigrations products
