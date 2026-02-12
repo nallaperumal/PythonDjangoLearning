@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
-from .models import Product, Sales
-from .serializers import ProductSerializer, SalesSerializer
+from .models import Product, Sales, Movie
+from .serializers import MovieSerializer, ProductSerializer, SalesSerializer
 from rest_framework.response import Response
 from rest_framework import status
 
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
+
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
@@ -36,6 +37,21 @@ class SalesViewSet(viewsets.ModelViewSet):
         # sales = Sales.objects.filter(Product__Name="red velvet").order_by('-Quantity')[:limit]
         serializer = self.get_serializer(sales, many=True)
         return Response(serializer.data)
+
+class MovieViewSet(viewsets.ModelViewSet):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+    @action(detail=False, methods=['get'], permission_classes=[AllowAny])
+    def top_3_movies(self, request):
+        movies = Movie.objects.order_by('-imdb_rating')[:3]
+        # sales = Sales.objects.filter(Product__id=2).order_by('-Quantity')[:limit]
+        # sales = Sales.objects.filter(Product__Name="red velvet").order_by('-Quantity')[:limit]
+        serializer = self.get_serializer(movies, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def hello_movies(request):
+    return HttpResponse("Hello world of movies!")
 
 def products(request):
     return HttpResponse("Hello world! Welcome to products")

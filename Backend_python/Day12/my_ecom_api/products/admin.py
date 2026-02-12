@@ -2,9 +2,10 @@
 
 from django.contrib import admin
 
-from .models import Product, Sales
+from .models import Movie, Product, Sales
 
 admin.site.register(Product)
+admin.site.register(Movie)
 admin.site.register(Sales)
 
 
