@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product,Sales, Movie
+from .models import BoxOfficeCollection, Product,Sales, Movie
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,4 +14,9 @@ class SalesSerializer(serializers.ModelSerializer):
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = '__all__'        
+        fields = '__all__'    
+
+class BoxOfficeCollectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BoxOfficeCollection
+        fields = '__all__'

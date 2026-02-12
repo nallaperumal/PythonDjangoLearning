@@ -17,6 +17,10 @@ class Movie(models.Model):
     Year_of_Release = models.PositiveIntegerField()
     imdb_rating = models.FloatField()
 
+class BoxOfficeCollection(models.Model):
+    Movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    Amount = models.FloatField()    
+
 # python manage.py makemigrations products
 # python manage.py migrate products
 # python manage.py shell
