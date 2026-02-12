@@ -32,6 +32,8 @@ class SalesViewSet(viewsets.ModelViewSet):
         if not country:
             return Response({'error': 'country parameter is required'}, status=status.HTTP_400_BAD_REQUEST) 
         sales = Sales.objects.filter(Country=country).order_by('-Quantity')[:limit]
+        # sales = Sales.objects.filter(Product__id=2).order_by('-Quantity')[:limit]
+        # sales = Sales.objects.filter(Product__Name="red velvet").order_by('-Quantity')[:limit]
         serializer = self.get_serializer(sales, many=True)
         return Response(serializer.data)
 
