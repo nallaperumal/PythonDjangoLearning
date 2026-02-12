@@ -3,3 +3,32 @@
     display: grid;
     grid-template-rows: 1fr 6fr auto ;
 }
+
+.product-title
+{
+    font-size: 2rem;
+    color: rgb(212, 124, 41);
+}
+.product-price
+{
+    font-size: 1.25rem;
+    color: rgb(8, 58, 2);
+}
+
+.buy-btn
+{
+    background: rgb(36, 82, 209);
+    color: white;
+    border-radius: 15px; 
+    padding: 10px;
+    border: none;
+}
+.product-card
+{
+   background: white;
+    max-width: 250px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 12px;
+    margin: 6px;
+}
