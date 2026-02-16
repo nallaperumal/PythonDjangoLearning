@@ -10,6 +10,17 @@ class Sales(models.Model):
   Quantity = models.PositiveIntegerField() 
   Country = models.CharField(max_length=100) 
   Created_at = models.DateTimeField(auto_now_add=True)
+
+class Movie(models.Model):
+    Name = models.CharField(max_length=20)
+    Lang = models.CharField(max_length=20)
+    Year_of_Release = models.PositiveIntegerField()
+    imdb_rating = models.FloatField()
+
+class BoxOfficeCollection(models.Model):
+    Movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    Amount = models.FloatField()    
+
 # python manage.py makemigrations products
 # python manage.py migrate products
 # python manage.py shell
