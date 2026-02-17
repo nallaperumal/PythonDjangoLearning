@@ -4,6 +4,7 @@
 <img [src]="img" width="200" />
 <p>Imdb:{{ imdb }}</p>
 <p> {{ year_of_release }}</p>
+<app-ticket-counter></app-ticket-counter>
 @if(IsDiscounted){
   <p>Special Discount Applied!</p>
 }
@@ -16,4 +17,5 @@
   <p>{{num_of_tickets}}</p>
   <button (click)="inc_counter()">+</button>
 </div>
+
 <router-outlet />
