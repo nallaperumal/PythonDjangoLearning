@@ -1,0 +1,13 @@
+.movie-title {
+  color: blue;
+}
+.counter
+{ 
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.price {
+  color: green;
+  font-size: larger;
+}

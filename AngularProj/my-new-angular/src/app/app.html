@@ -1,0 +1,13 @@
+<h1>My ticket booking app</h1>
+<h2 class="movie-title">{{ movie }}</h2>
+<p>{{ lang }}</p>
+<img [src]="img" width="200" />
+<p>Imdb:{{ imdb }}</p>
+<p> {{ year_of_release }}</p>
+<p class="price"> Rs.{{ price }}</p>
+<div class="counter">
+  <button (click)="dec_counter()">-</button>
+  <p>{{num_of_tickets}}</p>
+  <button (click)="inc_counter()">+</button>
+</div>
+<router-outlet />
