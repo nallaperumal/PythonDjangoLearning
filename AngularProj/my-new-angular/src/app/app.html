@@ -4,7 +4,13 @@
 <img [src]="img" width="200" />
 <p>Imdb:{{ imdb }}</p>
 <p> {{ year_of_release }}</p>
-<p class="price"> Rs.{{ price }}</p>
+@if(IsDiscounted){
+  <p>Special Discount Applied!</p>
+}
+@else{
+  <p>get more tickets and enjoy your discount!</p>
+}
+<p class="price"> Rs.{{ computed_price }}</p>
 <div class="counter">
   <button (click)="dec_counter()">-</button>
   <p>{{num_of_tickets}}</p>
