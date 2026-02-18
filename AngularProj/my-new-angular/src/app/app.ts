@@ -17,8 +17,8 @@ export class App {
   year_of_release = 2009;
 
   img = 'avatar.jpg';
-//  ng generate component <component-name>
+// ng generate component <component-name>
 // ng generate class MovieItem
-//ng generate service <service-name>
+// ng generate service <service-name>
 
 }
