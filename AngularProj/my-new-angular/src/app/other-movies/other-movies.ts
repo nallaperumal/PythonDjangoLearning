@@ -11,14 +11,20 @@ export class OtherMovies {
   movies: Movie[] = [];
   constructor(private fetchMovies: FetchMovies) { }
   ngOnInit(): void {
-    console.log('other-movies component initialized');
+    console.log('.......other-movies component just initialized');
     // this.fetchMovies.getTop3Movies().subscribe((data) => {
     //   console.log(data);
     //   this.movies = data;
     // })
     this.fetchMovies.getGoodMovies().subscribe((data) => {
-      console.log(data);
+      console.log(".....",data);
       this.movies = data;
     })
+  }
+  ngAfterContentInit(){
+    console.log('.......other-movies after content initialized');
+  }
+  ngAfterViewInit(){
+    console.log('.......other-movies after view initialized');
   }
 }

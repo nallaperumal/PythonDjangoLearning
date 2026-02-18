@@ -1,11 +1,14 @@
-
 <div class="menu">
     <p>Today's Special</p>
     <div>{{todaySpecial.name}}</div>
     <img [src]="todaySpecial.imageurl" width="120" />
     <div>Rs. {{todaySpecial.price}}</div>
 </div>
-@for( item of otherItems; track item.id){
-    <div>{{item.name}}</div>
-    <img [src]="item.imageurl" width="60" />
-}
+<div class="other-menu">
+    @for( item of otherItems; track item.id){
+    <div class="menu-item">
+        <div>{{item.name}}</div>
+        <img [src]="item.imageurl" width="60" />
+    </div>
+    }
+</div>
