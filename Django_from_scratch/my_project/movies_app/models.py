@@ -6,6 +6,7 @@ class Movie(models.Model):
     lang = models.CharField(max_length=20)
     year_of_release = models.PositiveIntegerField()
     imdb_rating = models.FloatField()
+    director = models.CharField(max_length=50, default="Cameron")
 
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
