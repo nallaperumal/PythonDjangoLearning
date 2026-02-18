@@ -18,4 +18,7 @@ export class App {
 
   img = 'avatar.jpg';
 //  ng generate component <component-name>
+// ng generate class MovieItem
+//ng generate service <service-name>
+
 }
