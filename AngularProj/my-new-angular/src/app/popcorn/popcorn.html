@@ -1,5 +1,7 @@
 
 <div class="menu">
-    <img class="menu-item" src="popcorn.png" width="60" />
-    <img class="menu-item" src="pome_juice.jpg" width="60" />
+    <p>Today's Special</p>
+    <div>{{todaySpecial.name}}</div>
+    <img [src]="todaySpecial.imageurl" width="60" />
+    <div>Rs. {{todaySpecial.price}}</div>
 </div>
