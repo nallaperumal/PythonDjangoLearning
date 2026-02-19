@@ -1,9 +1,15 @@
 <h1>My ticket booking app</h1>
-<h2 class="movie-title">{{ movie }}</h2>
-<p>{{ lang }}</p>
-<img [src]="img" width="200" />
-<p>Imdb:{{ imdb }}</p>
-<p> {{ year_of_release }}</p>
+<div class="container">
+  <div class="card shadow-sm" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title text-primary fw-bold">{{ movie }}</h5>
+      <p>{{ lang }}</p>
+      <img [src]="img" width="200" />
+      <p>Imdb:{{ imdb }}</p>
+      <p> {{ year_of_release }}</p>
+    </div>
+  </div>
+</div>
 <app-popcorn></app-popcorn>
 <app-ticket-counter [price]="500" [discount]="0.5"></app-ticket-counter>
 <app-other-movies></app-other-movies>
