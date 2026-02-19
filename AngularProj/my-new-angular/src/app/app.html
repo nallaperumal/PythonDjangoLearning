@@ -1,17 +1,28 @@
 <h1>My ticket booking app</h1>
-<nav>
-  <div>
-    <a routerLink="/ticket-counter">My Ticket counter</a>
-    <a routerLink="/snacks">Snacks</a>
-    <a routerLink="/other-movies">Other Movies</a>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Avatar movie</a>
+        <div class="navbar-nav">
+            <a class="nav-link" routerLink="/ticket-counter">My Ticket counter</a>
+            <a class="nav-link" routerLink="/snacks">Snacks</a>
+            <a class="nav-link" routerLink="/other-movies">Other Movies</a>
+        </div>
+    </div>
 </nav>
 <router-outlet />
-<h2 class="movie-title">{{ movie }}</h2>
-<p>{{ lang }}</p>
-<img [src]="img" width="200" />
-<p>Imdb:{{ imdb }}</p>
-<p> {{ year_of_release }}</p>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="img" width="200" />
+    <div class="card-body">
+        <h4 class="card-title">{{ movie }}</h4>
+        <p>{{ lang }}</p>
+
+        <p>Imdb:{{ imdb }}</p>
+        <p> {{ year_of_release }}</p>
+         <a href="#" class="btn btn-primary">Book Ticket</a>
+         <a href="#" class="btn btn-danger">Cancel Booking</a>
+         <a href="#" class="btn btn-secondary">More details</a>
+    </div>
+</div>
 <app-popcorn></app-popcorn>
 <app-ticket-counter [price]="500" [discount]="0.5"></app-ticket-counter>
 <app-other-movies></app-other-movies>
