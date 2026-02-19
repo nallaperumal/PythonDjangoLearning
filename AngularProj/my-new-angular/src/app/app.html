@@ -1,4 +1,12 @@
 <h1>My ticket booking app</h1>
+<nav>
+  <div>
+    <a routerLink="/ticket-counter">My Ticket counter</a>
+    <a routerLink="/snacks">Snacks</a>
+    <a routerLink="/other-movies">Other Movies</a>
+  </div>
+</nav>
+<router-outlet />
 <h2 class="movie-title">{{ movie }}</h2>
 <p>{{ lang }}</p>
 <img [src]="img" width="200" />
@@ -7,4 +15,3 @@
 <app-popcorn></app-popcorn>
 <app-ticket-counter [price]="500" [discount]="0.5"></app-ticket-counter>
 <app-other-movies></app-other-movies>
-<router-outlet />
