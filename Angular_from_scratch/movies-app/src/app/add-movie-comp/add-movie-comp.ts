@@ -10,6 +10,7 @@ import { MovieService } from '../movie-service';
 })
 export class AddMovieComp {
   private fb = inject(FormBuilder);
+  // bug fix
 
   constructor(private movieService: MovieService) { }
 
