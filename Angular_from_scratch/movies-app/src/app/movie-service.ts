@@ -15,4 +15,8 @@ export class MovieService {
     const movies = this.http.get<MovieItem[]>(this.apiUrl_for_top_3_movies);
     return movies;
   }
+
+  saveMovie(movie: MovieItem): Observable<MovieItem> {
+    return this.http.post<MovieItem>('http://localhost:8000/api/movies/', movie);
+  }
 }
