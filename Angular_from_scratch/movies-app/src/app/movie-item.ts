@@ -3,6 +3,6 @@ export interface MovieItem {
     name: string;
     year_of_release: number;
     lang: string;
-    imdb: number;
+    imdb_rating: number;
     director: string;
 }
