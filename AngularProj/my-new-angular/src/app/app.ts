@@ -21,5 +21,6 @@ export class App {
 // ng generate component <component-name>
 // ng generate class MovieItem
 // ng generate service <service-name>
-
+// npm install bootstrap
+// npm install bootstrap-icons
 }
