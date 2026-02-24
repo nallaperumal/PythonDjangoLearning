@@ -1,7 +1,12 @@
-<p>movie-comp works!!!</p>
-
-<p>other-movies</p>
-@for(mov of movies(); track mov.id) {
-    <p>{{mov.name}} [by {{mov.director}}]</p>
-    <p>{{mov.lang}}</p>
-}
+<button class="btn btn-primary m-2" (click)="gotoAddMoviePage()"><i class="bi bi-plus-circle"></i>Add movie</button>
+<div class="container m-5">
+    <div class="row">
+        @for(mov of movies(); track mov.id) {
+        <div class="card m-2" style="width: 18rem;">
+            <h5 class="card-title">{{mov.name}}</h5>
+            <p class="card-text"> [by {{mov.director}}] in {{mov.lang}}</p>
+            <button class="btn btn-danger m-2" (click)="deleteMovie(mov.id)"><i class="bi bi-trash"></i></button>
+        </div>
+        }
+    </div>
+</div>
