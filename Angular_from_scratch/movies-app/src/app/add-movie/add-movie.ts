@@ -26,7 +26,7 @@ export class AddMovie {
     if (this.movieForm.valid) {
       const payload = this.movieForm.value;
       console.log('Form Data:', payload);
-       this.movieService.SaveMovie(payload).subscribe((data) => {
+       this.movieService.saveMovie(payload).subscribe((data) => {
         console.log(".....", data);
       })
     } else {
