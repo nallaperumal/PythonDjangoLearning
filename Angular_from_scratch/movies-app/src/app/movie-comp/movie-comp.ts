@@ -11,6 +11,17 @@ import { Route, Router } from '@angular/router';
 })
 export class MovieComp {
   movies = signal<MovieItem[]>([]);
+  IsGrid = signal(true);
+
+  DisplayAsGrid()
+  {
+    this.IsGrid.set(true);
+  }
+
+  DisplayAsList()
+  {
+    this.IsGrid.set(false);
+  }
 
   deleteMovie(id: number) {
     this.movieService.deleteMovie(id).subscribe(res => {
