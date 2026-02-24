@@ -1,7 +1,54 @@
-<p>movie-comp works!!!</p>
+<div class="text-end m-3">
+    @if(IsGrid() == true){
+    <div class="btn-group">
+        <button class="btn btn-outline-primary active"><i class="bi bi-grid-fill"></i>Grid</button>
+        <button class="btn btn-outline-primary" (click)="DisplayAsList()"><i class="bi bi-list-ul"></i>List</button>
+    </div>
+    }
+    @else{
+    <div class="btn-group">
+        <button class="btn btn-outline-primary" (click)="DisplayAsGrid()"><i class="bi bi-grid-fill"></i>Grid</button>
+        <button class="btn btn-outline-primary active"><i class="bi bi-list-ul"></i>List</button>
+    </div>
+    }
+</div>
 
-<p>other-movies</p>
-@for(mov of movies(); track mov.id) {
-    <p>{{mov.name}} [by {{mov.director}}]</p>
-    <p>{{mov.lang}}</p>
+
+<button class="btn btn-primary m-2" (click)="gotoAddMoviePage()"><i class="bi bi-plus-circle"></i>Add movie</button>
+@if(IsGrid() == true)
+{
+<div class="container m-5">
+    <div class="row">
+        @for(mov of movies(); track mov.id) {
+        <div class="card m-2" style="width: 18rem;">
+            <h5 class="card-title">{{mov.name}}</h5>
+            <p class="card-text"> [by {{mov.director}}] in {{mov.lang}}</p>
+            <button class="btn btn-danger m-2" (click)="deleteMovie(mov.id)"><i class="bi bi-trash"></i></button>
+        </div>
+        }
+    </div>
+</div>
+}
+@else
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Director</th>
+            <th scope="col">Langauage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(mov of movies(); track mov.id) {
+        <tr>
+            <td>{{mov.id}} </td>
+            <td>{{mov.name}} </td>
+            <td>{{mov.director}} </td>
+            <td>{{mov.lang}} </td>
+        </tr>
+        }
+    </tbody>
+</table>
 }

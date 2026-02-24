@@ -1,28 +1,30 @@
 <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="id" class="form-label">Movie ID</label>
-        <input id="id" class="form-control" formControlName="id" />
-    </div>
-    <div>
-        <label for="name" class="form-label">Movie Name</label>
-        <input id="name" class="form-control" formControlName="name" />
-    </div>
+    <div class="row">
+        <div class="col">
+            <label for="id" class="form-label">Movie ID</label>
+            <input id="id" class="form-control" formControlName="id" />
+        </div>
+        <div class="col">
+            <label for="name" class="form-label">Movie Name</label>
+            <input id="name" class="form-control" formControlName="name" />
+        </div>
 
-    <div>
-        <label for="lang" class="form-label">Language</label>
-        <input id="lang" class="form-control" formControlName="lang" />
-    </div>
-    <div>
-        <label for="year_of_release" class="form-label">Year of Release</label>
-        <input id="year_of_release" class="form-control" formControlName="year_of_release" />
-    </div>
-    <div>
-        <label for="imdb_rating" class="form-label">IMDB Rating</label>
-        <input id="imdb_rating" class="form-control" formControlName="imdb_rating" />
-    </div>
-    <div>
-        <label for="director" class="form-label">Director</label>
-        <input id="director" class="form-control" formControlName="director" />
+        <div class="col">
+            <label for="lang" class="form-label">Language</label>
+            <input id="lang" class="form-control" formControlName="lang" />
+        </div>
+        <div class="col">
+            <label for="year_of_release" class="form-label">Year of Release</label>
+            <input id="year_of_release" class="form-control" formControlName="year_of_release" />
+        </div>
+        <div class="col">
+            <label for="imdb_rating" class="form-label">IMDB Rating</label>
+            <input id="imdb_rating" class="form-control" formControlName="imdb_rating" />
+        </div>
+        <div class="col">
+            <label for="director" class="form-label">Director</label>
+            <input id="director" class="form-control" formControlName="director" />
+        </div>
     </div>
     <button class="btn btn-primary" type="submit" [disabled]="movieForm.invalid">Submit</button>
 </form>
