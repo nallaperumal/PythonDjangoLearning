@@ -4,7 +4,11 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
 
-from movies_app.models import Movie, MovieSerializer
+from movies_app.models import Movie, MovieSerializer, Song, SongSerializer
+
+class SongViewSet(viewsets.ModelViewSet):
+    queryset = Song.objects.all()
+    serializer_class = SongSerializer
 
 # ViewSet for API endpoints
 class MovieViewSet(viewsets.ModelViewSet):
@@ -20,5 +24,11 @@ class MovieViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'])
     def only_good_movies(self, request):
         movies = Movie.objects.filter(imdb_rating__gt=8.0).order_by('-imdb_rating')
+        serializer = self.get_serializer(movies, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'])
+    def get_movies_with_songs(self, request):
+        movies = Movie.objects.all()
         serializer = self.get_serializer(movies, many=True)
         return Response(serializer.data)
