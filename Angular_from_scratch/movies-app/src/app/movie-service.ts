@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { MovieItem } from './movie-item';
+import { MovieItem,MovieWithSongItem } from './movie-item';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +17,11 @@ export class MovieService {
 
   getTop3Movies(): Observable<MovieItem[]> {
     const movies = this.http.get<MovieItem[]>(this.apiUrl_for_top_3_movies);
+    return movies;
+  }
+
+  getAllMoviesWithSongs(): Observable<MovieWithSongItem[]> {
+    const movies = this.http.get<MovieWithSongItem[]>("http://localhost:8000/api/movies/get_movies_with_songs/")
     return movies;
   }
 

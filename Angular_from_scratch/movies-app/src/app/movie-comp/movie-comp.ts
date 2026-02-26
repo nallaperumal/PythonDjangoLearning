@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { MovieItem } from '../movie-item';
+import { MovieItem, MovieWithSongItem } from '../movie-item';
 import { MovieService } from '../movie-service';
 import { Route, Router } from '@angular/router';
 
@@ -11,7 +11,18 @@ import { Route, Router } from '@angular/router';
 })
 export class MovieComp {
   movies = signal<MovieItem[]>([]);
+  movieWithSongs = signal<MovieWithSongItem[]>([]);
   IsGrid = signal(true);
+  
+  fetchMoviesWithSongs() {
+    this.movieService.getAllMoviesWithSongs().subscribe(
+      movies => {
+        console.log("received response from server...");
+        this.movieWithSongs.set(movies);
+        console.log(this.movieWithSongs());
+      });
+  }
+
 
   DisplayAsGrid()
   {
@@ -37,7 +48,7 @@ export class MovieComp {
 
   constructor(private movieService: MovieService, private router: Router) {
     console.log("before making the request...");
-    this.fetchMovies();
+    this.fetchMoviesWithSongs();
     console.log("after making the request...");
   }
 
