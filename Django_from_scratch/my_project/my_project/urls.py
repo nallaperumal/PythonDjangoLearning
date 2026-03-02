@@ -24,6 +24,7 @@ from movies_app import views
 
 router = DefaultRouter()
 router.register(r'api/movies', views.MovieViewSet)
+router.register(r'api/songs', views.SongViewSet)
 urlpatterns = [
     path('', RedirectView.as_view(url='/api/docs/')),
     path('', include(router.urls)),    

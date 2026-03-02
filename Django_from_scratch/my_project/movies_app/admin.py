@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Song,Movie
+
+admin.site.register(Song)
+admin.site.register(Movie)
+# python manage.py createsuperuser
+
