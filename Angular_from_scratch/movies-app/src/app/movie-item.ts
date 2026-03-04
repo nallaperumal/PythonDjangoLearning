@@ -1,3 +1,7 @@
+export interface LoginToken {
+    access: string;
+    refresh: string;
+}
 export interface MovieItem {
     id: number;
     name: string;
