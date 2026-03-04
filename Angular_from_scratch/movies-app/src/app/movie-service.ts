@@ -17,11 +17,21 @@ export class MovieService {
       "username": usr,
       "password": pwd
     }
-    this.http.post<LoginToken>(`http://localhost:8000/api/token/`, body).subscribe(res =>{
+     this.http.post<LoginToken>(`http://localhost:8000/api/token/`, body).subscribe({
+      next:(res) => {
         const accesstoken = res.access;
         console.log(accesstoken);
         localStorage.setItem('access_token', accesstoken);
-    });
+      },
+      error:(err) => {
+        console.log(`error: ${err}`);
+      }
+     })
+    //  subscribe(res =>{
+    //     const accesstoken = res.access;
+    //     console.log(accesstoken);
+    //     localStorage.setItem('access_token', accesstoken);
+    // });
   }
 
   deleteMovie(id: number): Observable<any> {
